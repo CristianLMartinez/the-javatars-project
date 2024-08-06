@@ -11,27 +11,27 @@ import java.sql.Timestamp;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "usuarios")
-public class Usuario {
+@Table(name = "users")
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false, length = 100)
-    private String nombre;
+    private String name;
 
     @Column(nullable = false, length = 100, unique = true)
-    private String correo;
+    private String email;
 
     @Column(nullable = false, length = 256)
-    private String contrasena;
+    private String password;
 
     @Column(length = 15)
-    private String telefono;
+    private String celphone;
 
     @Column(columnDefinition = "TEXT")
-    private String direccion;
+    private String address;
 
     @Column(name = "created_at", updatable = false)
     private Timestamp createdAt = new Timestamp(System.currentTimeMillis());

@@ -6,29 +6,48 @@ import org.hibernate.validator.constraints.Length;
 
 import java.sql.Timestamp;
 
-public record UsuarioDTO(
+public record UserDTO(
         Long id,
 
         @NotEmpty
         @Length(min = 5, max = 20)
-        String nombre,
+        String name,
 
         @NotEmpty
         @Email
-        String correo,
+        String email,
 
         @NotEmpty
         @Length(min = 8, max = 20)
-        String contrasena,
+        String password,
 
         @NotEmpty
         @Length(min = 7, max = 10)
-        String telefono,
+        String celphone,
 
         @NotEmpty
         @Length(min = 5, max = 20)
-        String direccion,
+        String address,
 
         Timestamp createdAt
 ) {
+        public String getName(){
+        return name;
+        }
+
+        public String getEmail(){
+        return email;
+        }
+
+        public String getPassword() {
+        return password;
+        }
+
+        public String getCelphone() {
+        return celphone;
+        }
+
+        public String getAddress() {
+        return address;
+        }
 }
