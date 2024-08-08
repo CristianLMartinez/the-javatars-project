@@ -38,7 +38,21 @@ public class UserController {
 
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable Long id) {
+        userService.deleteUser(id);
+    }
 
+    @GetMapping("/search")
+    public List<UserDTO> searchUsers(@RequestParam(name = "query") String query) {
+        return userService.searchUsers(query);
+    }
+
+    @GetMapping("/count")
+    public Long countUsers() {
+        return userService.countUsers();
+    }
 
 
 }

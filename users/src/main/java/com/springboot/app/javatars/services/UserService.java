@@ -54,5 +54,20 @@ public class UserService {
         }
     }
 
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
+    }
+
+    public List<UserDTO> searchUsers(String query) {
+        List<User> users = userRepository.findByNameContaining(query);
+        return users.stream()
+                .map(UserMapper::toDTO)
+                .collect(Collectors.toList());
+    }
+
+    public Long countUsers() {
+        return userRepository.count();
+    }
+
 
 }
